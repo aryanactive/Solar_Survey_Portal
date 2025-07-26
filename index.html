@@ -12,6 +12,7 @@
 <body>
     <header>
         <img src="logo.jpeg" alt="Solar Energy World Logo"> <!--We can say Placeholder for the logo -->
+        <h1>Solar Energy World Survey</h1>
     </header>
 
     <main>
@@ -21,15 +22,17 @@
             </article>
 
             <nav id="navigation-buttons">
-                <button id="prev-btn">Previous</button>
-                <button id="next-btn">Next</button>
-                <button id="submit-btn">Submit</button>
+                <button id="prev-btn" title="Go to previous question">Previous</button>
+                <button id="next-btn" title="Go to next question">Next</button>
+                <button id="submit-btn" title="Submit question answers">Submit</button>
             </nav>
         </section>
 
-        <section id="results-section">
-            <!-- This section is for displaying survey results -->
+        <section id="results-section" hidden>
+          <h2>Survey Results</h2>
+          <div id="results-content"></div>
         </section>
+
     </main>
 
     <footer>

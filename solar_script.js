@@ -150,19 +150,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Function to navigate to next question
+    function goToNextQuestion() {
+        saveUserResponse();
+        if (currentQuestionIndex < surveyQuestions.length - 1) {
+            currentQuestionIndex++;
+            displayQuestion(surveyQuestions[currentQuestionIndex]);
+        }
+    }
+
+
     // Function to navigate to previous question
     function goToPreviousQuestion() {
+    saveUserResponse();
         if (currentQuestionIndex > 0) {
             currentQuestionIndex--;
             displayQuestion(surveyQuestions[currentQuestionIndex]);
         }
     }
+    submitButton.addEventListener('click', () => {
+        saveUserResponse();
+        displayResults();
+    });
+    
+    function displayResults() {
+        questionContainer.innerHTML = '';
+        resultsSection.innerHTML = '<h2>Survey Completed! Your Responses:</h2>';
+    
+        userResponses.forEach((response, index) => {
+            const question = surveyQuestions[index];
+            const resultItem = document.createElement('div');
+            resultItem.innerHTML = `<strong>Q${index + 1}:</strong> ${question.text}<br>
+            <em>Your answer:</em> ${Array.isArray(response) ? response.join(', ') : response || 'No response'}<br><br>`;
+            resultsSection.appendChild(resultItem);
+        });
+    
+        resultsSection.style.display = 'block';
+        document.getElementById('navigation-buttons').style.display = 'none';
+    }
 
-    // Function to navigate to next question
-    function goToNextQuestion() {
-        if (currentQuestionIndex < surveyQuestions.length - 1) {
-            currentQuestionIndex++;
-            displayQuestion(surveyQuestions[currentQuestionIndex]);
+    // Save user response before navigating
+    function saveUserResponse() {
+        const question = surveyQuestions[currentQuestionIndex];
+        const inputs = questionContainer.querySelectorAll('input, textarea');
+    
+        if (question.type === 'mcq') {
+            inputs.forEach(input => {
+                if (input.checked) userResponses[currentQuestionIndex] = input.value;
+            });
+        } else if (question.type === 'selective') {
+            userResponses[currentQuestionIndex] = [];
+            inputs.forEach(input => {
+                if (input.checked) userResponses[currentQuestionIndex].push(input.value);
+            });
+        } else if (question.type === 'short' || question.type === 'descriptive') {
+            userResponses[currentQuestionIndex] = inputs[0].value;
         }
     }
 

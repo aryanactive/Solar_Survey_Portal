@@ -15,6 +15,25 @@ header {
 header img {
     max-width: 200px;
 }
+.logo {
+  max-width: 150px;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+    header img {
+        max-width: 100px;
+    }
+
+    #navigation-buttons button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
 
 main {
     padding: 20px;
@@ -24,14 +43,35 @@ main {
     margin-bottom: 20px;
 }
 
-#question-container {
-    margin-bottom: 20px;
+#question-container.active {
+    border: 2px solid #36bfde;
+    padding: 15px;
+    background-color: #f2faff;
+    border-radius: 8px;
 }
+
 
 #navigation-buttons button {
     margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #36bfde;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+#navigation-buttons button:hover {
+    background-color: #2a9ab8;
+}
+
 
 #results-section {
     display: none; /* I have Hided results section initially */
 }
+#results-section.show {
+    display: block;
+}
+

@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Your Dashboard</h2>
+        <div class="content">
+            <!-- Your dashboard content goes here -->
+            <p>This is where you can view your family activities, notifications, etc.</p>
+        </div>
+        <a href="logout.html">Logout</a>
+    </div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Dashboard</title>
+    <style>
+        /* Basic styling for the dashboard */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .response {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Survey Dashboard</h1>
+    <div id="responses-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select the container for responses
+            const responsesContainer = document.getElementById('responses-container');
+
+            // Function to display responses in the dashboard
+            function displayResponses(responses) {
+                // Clear previous responses
+                responsesContainer.innerHTML = '';
+
+                // Loop through each response
+                responses.forEach((response, index) => {
+                    // Create a div element to display each response
+                    const responseDiv = document.createElement('div');
+                    responseDiv.classList.add('response');
+
+                    // Create a heading for the response
+                    const heading = document.createElement('h2');
+                    heading.textContent = `Response ${index + 1}`;
+                    responseDiv.appendChild(heading);
+
+                    // Loop through each question in the response
+                    response.forEach(question => {
+                        // Create a paragraph element to display the question and answer
+                        const paragraph = document.createElement('p');
+                        paragraph.innerHTML = `<strong>${question.text}:</strong> ${question.answer}`;
+                        responseDiv.appendChild(paragraph);
+                    });
+
+                    // Add the response div to the container
+                    responsesContainer.appendChild(responseDiv);
+                });
+            }
+
+            // Sample responses (replace this with actual responses saved from the survey)
+            const sampleResponses = [
+                [
+                    { text: "What is your primary source of energy for residential purposes?", answer: "Solar" },
+                    { text: "How interested are you in using solar energy for your home?", answer: "Very interested" },
+                    // Include other questions and answers here
+                ],
+                [
+                    { text: "What is your primary source of energy for residential purposes?", answer: "Electricity" },
+                    { text: "How interested are you in using solar energy for your home?", answer: "Somewhat interested" },
+                    // Include other questions and answers here
+                ],
+                // Include more responses as needed
+            ];
+
+            // Display the sample responses in the dashboard
+            displayResponses(sampleResponses);
+        });
+    </script>
+</body>
+</html>

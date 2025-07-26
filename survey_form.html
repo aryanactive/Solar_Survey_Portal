@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.jpeg" alt="Solar Energy World Logo"> <!--We can say Placeholder for the logo -->
+    </header>
+    <main>
+    <h1>Survey Form</h1>
+    <form action="http://localhost:3000" method="post">
+        <!-- Include your survey questions here -->
+        <div class="question">
+            <label for="q1">What is your primary source of energy for residential purposes?</label><br>
+            <input type="radio" id="q1-a" name="q1" value="Solar">
+            <label for="q1-a">Solar</label><br>
+            <input type="radio" id="q1-b" name="q1" value="Electricity">
+            <label for="q1-b">Electricity</label><br>
+            <input type="radio" id="q1-c" name="q1" value="Natural Gas">
+            <label for="q1-c">Natural Gas</label><br>
+            <input type="radio" id="q1-d" name="q1" value="Others">
+            <label for="q1-d">Others</label>
+        </div>
+        <!-- Include other questions similarly -->
+        <button type="submit">Submit Survey</button>
+    </form>
+</main>
+<footer>
+    <p>&copy; 2024 Solar Energy World</p>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>

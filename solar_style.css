@@ -1,0 +1,37 @@
+/* solar_styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #36bfde;
+    padding: 10px;
+    text-align: center;
+}
+
+header img {
+    max-width: 200px;
+}
+
+main {
+    padding: 20px;
+}
+
+#question-section {
+    margin-bottom: 20px;
+}
+
+#question-container {
+    margin-bottom: 20px;
+}
+
+#navigation-buttons button {
+    margin-right: 10px;
+}
+
+#results-section {
+    display: none; /* I have Hided results section initially */
+}
